@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, StatusBar } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';  // Make sure you've installed this package
 export default function LoginForm({ navigation }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const storeToken = async (value) => {
+    try {
+      await AsyncStorage.setItem('token', value)
+    } catch (e) {
+      // saving error
+      console.error('Failed to save the data to the storage', e);
+    }
+  }
 
   const login = async () => {
       try
@@ -22,7 +31,7 @@ export default function LoginForm({ navigation }) {
           {
               const { token } = await response.json();
               console.log('Got token: ', token);
-              // TODO: you should now store the token and use it to make authenticated requests to your API
+              await storeToken(token); // saves token to AsyncStorage
           }
           else
           {
