@@ -6,18 +6,48 @@ import {
   View,
   Image,
   TextInput,
-  Button,
   TouchableOpacity,
 } from "react-native";
 
-export default function App(){
+export default function Login(){
 
   const[email, setEmail] = useState("");
   const[password, setPassword] = useState("");
+  const[errorMessage, setErrorMessage] = useState("");
+
+  const login = async () => {
+      try
+      {
+          const response = await fetch('https://geobooks-e802c07bfa62.herokuapp.com/login', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ username: email, password })
+          });
+
+          if(response.ok)
+          {
+              const { token } = await response.json();
+              console.log('Got token: ', token);
+              // TODO: you should now store the token and use it to make authenticated requests to your API
+          }
+          else
+          {
+              const { message } = await response.json();
+              setErrorMessage(message);
+          }
+      }
+      catch (error)
+      {
+          console.error('You have an error in your code or there are Network issues.', error);
+          setErrorMessage(error.message);
+      }
+  };
 
   return(
     <View style = {styles.container}>
-      <Image style={styles.image} source = {require("./assets/geobook-logo.png")} /> 
+      <Image style={styles.image} source = {require("cop4331-bigproject-mobile/assets/geobook-logo.png")} />
       <StatusBar style = "auto" />
       <View style = {styles.inputView}>
         <TextInput
@@ -25,8 +55,8 @@ export default function App(){
           placeholder = "Email"
           placeholderTextColor = "#116A7B"
           onChangeText = {(email) => setEmail(email)}
-        /> 
-      </View> 
+        />
+      </View>
       <View style = {styles.inputView}>
         <TextInput
           style = {styles.TextInput}
@@ -34,15 +64,13 @@ export default function App(){
           placeholderTextColor = "#116A7B"
           secureTextEntry = {true}
           onChangeText = {(password) => setPassword(password)}
-        /> 
-      </View> 
-      <TouchableOpacity>
-        <Text style = {styles.forgot_button}>Forgot Password?</Text> 
-      </TouchableOpacity> 
-      <TouchableOpacity style = {styles.login_button}>
-        <Text style = {styles.loginText}>LOGIN</Text> 
-      </TouchableOpacity> 
-    </View> 
+        />
+      </View>
+      <TouchableOpacity onPress={login}>
+        <Text style = {styles.login_button}>LOGIN</Text>
+      </TouchableOpacity>
+      <Text>{errorMessage}</Text>
+    </View>
   );
 }
 const styles = StyleSheet.create({
@@ -68,10 +96,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
-  },
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
   },
   login_button: {
     width: "80%",

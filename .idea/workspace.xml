@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9342f72b-d49b-42ab-acc8-725155ed6d8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/assets/geobook-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/assets/thank-god-we-found-it.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/components/FormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/components/FormTitle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/components/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/components/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/login/pages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/pages/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cop4331-bigproject-mobile/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cop4331-bigproject-mobile/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cop4331-bigproject-mobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cop4331-bigproject-mobile/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2SXgNQdzFyWQMiEm4OJuV0bxMfV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\crist\StudioProjects\COP4331-BigProject-Mobile\cop4331-bigproject-mobile\assets" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9342f72b-d49b-42ab-acc8-725155ed6d8b" name="Changes" comment="" />
+      <created>1689298298711</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689298298711</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

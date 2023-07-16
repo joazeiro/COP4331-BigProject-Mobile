@@ -5,8 +5,8 @@ export default class App extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        
-      </View> 
+
+      </View>
     );
   }
 }
@@ -18,5 +18,5 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
      },
-      
+
   });
