@@ -1,6 +1,9 @@
+import 'react-native-gesture-handler';
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';  // Make sure you've installed this package
+
+
 export default function LoginForm({ navigation }) {
 
   const [email, setEmail] = useState("");
@@ -79,7 +82,7 @@ export default function LoginForm({ navigation }) {
        </TouchableOpacity>
 
        <Text>Don't have an account yet?</Text>
-       <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
          <Text style={styles.linkText}>Sign Up Here!</Text>
        </TouchableOpacity>
 
