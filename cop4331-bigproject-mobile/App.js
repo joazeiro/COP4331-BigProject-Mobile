@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'; 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import LoginPage from 'cop4331-bigproject-mobile/login/pages.js'; // Ensure this path is correct for your project structure
@@ -16,7 +16,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Register" component={RegisterPage} />
         {/* Add other screens as needed */}
-        {/* <Stack.Screen name="OtherScreen" component={OtherScreen} /> */}
+        {/* <Stack.Screen name="OtherScreen" component={OtherScreen} /> */} 
       </Stack.Navigator>
     </NavigationContainer>
   );
