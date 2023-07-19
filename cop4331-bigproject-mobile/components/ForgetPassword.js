@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, Button } from 'react-native';
-
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Image } from 'react-native';
 
 export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
@@ -8,99 +7,135 @@ export default function ForgotPassword({ navigation }) {
 
   const handleEmail = async () => {
     try {
-        const response = await fetch('https://geobooks-e802c07bfa62.herokuapp.com/forgot-password', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email
-            })
-        });
+      const response = await fetch('https://geobooks-e802c07bfa62.herokuapp.com/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email
+        })
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.ok) {
-            setErrorMessage(data.message);
-        } else if (response.status === 401) {
-            // An error has occured
-            setErrorMessage(data.error);
-        } else {
-            console.log('An Error Occurred');
-        }
+      if (response.ok) {
+        setErrorMessage(data.message);
+      } else if (response.status === 401) {
+        // An error has occured
+        setErrorMessage(data.error);
+      } else {
+        console.log('An Error Occurred');
+      }
     } catch (error) {
-        console.log('An Error Occurred', error);
+      console.log('An Error Occurred', error);
     }
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Forgot Password</Text>
+      <StatusBar style="auto" />
+      <Image style={styles.image} source={require("cop4331-bigproject-mobile/assets/geobook-logo.png")} />
 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Your Email"
-          placeholderTextColor="#116A7B"
-          onChangeText={(email) => setEmail(email)}
-        />
+      <View style={styles.whiteBox}>
+        <Text style={styles.title}>Forgot Password</Text>
+
+        <Text style={styles.label}>Email Address</Text>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Enter your email"
+            placeholderTextColor="#116A7B66"
+            onChangeText={(email) => setEmail(email)}
+          />
+        </View>
+
+        <TouchableOpacity style={styles.loginButton} onPress={handleEmail}>
+          <Text style={styles.loginButtonText}>Send Email</Text>
+        </TouchableOpacity>
+
+        <View style={styles.linkText}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.linkText}>Go Back to Login</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Text>{errorMessage}</Text>
       </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleEmail}>
-        <Text style={styles.buttonText}>Send Email</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.linkText}>Go Back to Login</Text>
-      </TouchableOpacity>
-
-      <Text>{errorMessage}</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    padding: 20
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -200,
   },
-  header: {
-    fontSize: 30,
+  image: {
+    marginTop: 25,
+    marginBottom: 25,
+    width: 300,
+    height: 81,
+  },
+  whiteBox: {
+    backgroundColor: '#ECE5C7',
+    borderRadius: 20,
+    padding: 7,
+    alignItems: 'center',
+    width: '90%', 
+    maxWidth: 400,
+    borderColor: '#116A7B',
+    borderWidth: 3,
+  },
+  title: {
+    fontSize: 20,
+    color: '#116A7B',
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: 'center'
   },
+  linkText: {
+    marginTop: 3,
+    marginBottom: 6,
+    color: '#116A7B',
+    textDecorationLine: 'underline',
+  },
   inputView: {
-    backgroundColor: "#EEE",
-    borderRadius: 20,
-    width: "100%",
-    height: 45,
-    marginBottom: 20,
-    alignItems: "center",
+    width: "90%", 
+    backgroundColor: "#fff",
+    borderRadius: 11,
+    height: 40,
+    marginBottom: 4,
+    justifyContent: "center",
+    padding: 20,
   },
   TextInput: {
     height: 50,
-    flex: 1,
+    flex: 0,
     padding: 10,
-    marginLeft: 20,
+    marginLeft: -14,
   },
-  button: {
-    width: "100%",
-    borderRadius: 25,
-    height: 50,
+  label: {
+    alignSelf: 'flex-start',
+    marginLeft: '5%',
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#116A7B',
+    fontSize: 14,
+  },
+  loginButton: {
+    width: "90%",
+    backgroundColor: '#116A7B',
+    borderRadius: 11,
+    height: 40,
+    marginTop: 7,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
-    backgroundColor: "#116A7B",
+    marginBottom: 4,
   },
-  buttonText: {
-    color: '#FFF'
-  },
-  linkText: {
-    color: '#116A7B',
-    textDecorationLine: 'underline',
-    textAlign: 'center',
-    marginTop: 20
+  loginButtonText: {
+    color: '#ffffff'
   },
 });

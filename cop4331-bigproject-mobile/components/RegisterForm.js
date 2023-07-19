@@ -46,52 +46,100 @@ const RegisterForm = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="First Name"
-        onChangeText={(text) => setFirstName(text)}
-        value={firstName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Last Name"
-        onChangeText={(text) => setLastName(text)}
-        value={lastName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        onChangeText={(text) => setUsername(text)}
-        value={username}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        secureTextEntry={true}
-        onChangeText={(text) => setConfirmPassword(text)}
-        value={confirmPassword}
-      />
-      <TouchableOpacity onPress={handleRegister} style={styles.button}>
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
-      <View style={styles.footer}>
-        <Text>Already have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.linkText}>Login Here!</Text>
+
+      <View style={styles.whiteBox}>
+        
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>First Name</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="First Name"
+              placeholderTextColor="#116A7B66"
+              onChangeText={(text) => setFirstName(text)}
+              value={firstName}
+            />
+          </View>
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Last Name</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Last Name"
+              placeholderTextColor="#116A7B66"
+              onChangeText={(text) => setLastName(text)}
+              value={lastName}
+            />
+          </View>
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Username</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Username"
+              placeholderTextColor="#116A7B66"
+              onChangeText={(text) => setUsername(text)}
+              value={username}
+            />
+          </View>
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Email</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Email"
+              placeholderTextColor="#116A7B66"
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+            />
+          </View>
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Password</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Password"
+              placeholderTextColor="#116A7B66"
+              secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+            />
+          </View>
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Confirm Password</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Confirm Password"
+              placeholderTextColor="#116A7B66"
+              secureTextEntry={true}
+              onChangeText={(text) => setConfirmPassword(text)}
+              value={confirmPassword}
+            />
+          </View>
+        </View>
+
+        <TouchableOpacity style={styles.loginButton} onPress={handleRegister}>
+          <Text style={styles.loginButtonText}>Register</Text>
         </TouchableOpacity>
+
+        <View style={styles.centerText}>
+          <Text style={styles.accountText}>Already have an account?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.linkText}>Login Here!</Text>
+          </TouchableOpacity>
+        </View>
+
         <Text>{errorMessage}</Text>
       </View>
     </View>
@@ -101,38 +149,82 @@ const RegisterForm = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    padding: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -130,
   },
   title: {
     fontSize: 24,
+    color: '#116A7B',
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 20,
+  whiteBox: {
+    backgroundColor: '#ECE5C7',
+    borderRadius: 20,
+    padding: 5,
+    alignItems: 'center', 
+    width: '84%',
+    marginTop: 40,
+    maxWidth: 400,
+    borderColor: '#116A7B',
+    borderWidth: 3, 
   },
-  button: {
-    backgroundColor: '#4B0082',
-    padding: 10,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-  },
-  footer: {
-    marginTop: 20,
-    alignItems: 'center',
+  fieldContainer: {
+    width: '90%',
+    alignItems: 'flex-start', 
   },
   linkText: {
-    color: '#0000EE',
+    marginTop: 3,
+    marginBottom: 6,
+    color: '#116A7B',
     textDecorationLine: 'underline',
   },
+  inputView: {
+    width: "100%", 
+    backgroundColor: "#fff",
+    borderRadius: 11,
+    height: 40,
+    marginBottom: 4,
+    justifyContent: "center",
+    padding: 20,
+  },
+  TextInput: {
+    height: 50,
+    flex: 0,
+    padding: 10,
+    marginLeft: -14,
+    textAlign: 'left', 
+  },
+  label: {
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#116A7B',
+    fontSize: 14,
+  },
+  loginButton: {
+    width: "90%",
+    backgroundColor: '#116A7B',
+    borderRadius: 11,
+    height: 40,
+    marginTop: 8,
+    marginBottom: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 4,
+  },
+  loginButtonText: {
+    color: '#ffffff'
+  },
+  centerText: {
+    marginTop: 10,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  accountText: {
+    color: '#116A7B',
+  }
 });
 
 export default RegisterForm;
