@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from 'cop4331-bigproject-mobile/login/pages.js'; // Ensure this path is correct
 import RegisterPage from 'cop4331-bigproject-mobile/register/pages.js'; // Adjust the path as needed
 import ForgotPasswordPage from './login/forgot-password/pages';
-import backgroundImage from 'cop4331-bigproject-mobile/assets/thank-god-we-found-it.png';
+import backgroundImage from 'cop4331-bigproject-mobile/assets/THE-ONE-WE-NEED-YIPPPEEEEEopac3.jpg';
 
 const Stack = createStackNavigator();
 
