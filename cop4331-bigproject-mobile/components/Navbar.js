@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, TextInput, TouchableOpacity, Text, AsyncStorage } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { SearchContext } from 'cop4331-bigproject-mobile\components\SearchContext.js'; 
+//import { SearchContext } from 'cop4331-bigproject-mobile\components\SearchContext.js'; 
+//import { SearchContext, SearchHandler } from 'cop4331-bigproject-mobile\components\SearchContext.js';
+import { SearchContext } from './SearchContext';
 
-const Navbar = () => {
+export const Navbar = () => {
     const navigation = useNavigation();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [searchQuery, setSearchQuery] = useContext(SearchContext);
@@ -16,7 +19,7 @@ const Navbar = () => {
             let token = null;
 
             try {
-                token = await AsyncStorage.getItem('personalToken');
+                token = await AsyncStorage.getItem('token');
             } catch (e) {
                 console.error(e);
             }
@@ -80,34 +83,17 @@ const Navbar = () => {
                 />
             </View>
             <View style={{ flexDirection: 'row' }}>
-                {!isLoggedIn ? (
-                    <>
-                        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                            <Text>Login</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                            <Text>Sign Up</Text>
-                        </TouchableOpacity>
-                    </>
-                ) : (
-                    <>
-                        <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
-                            <Text>Create Post</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('MyAccount')}>
-                            <Text>My Account</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={async () => {
-                            await AsyncStorage.setItem('personalToken', '');
-                            navigation.navigate('Login');
-                        }}>
-                            <Text>Sign Out</Text>
-                        </TouchableOpacity>
-                    </>
-                )}
+                <TouchableOpacity onPress={async () => {
+                    await AsyncStorage.setItem('token', '');
+                    navigation.navigate('Login');
+                }}>
+                    <Text>Sign Out</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
+    
+    
 };
 
 export default Navbar;

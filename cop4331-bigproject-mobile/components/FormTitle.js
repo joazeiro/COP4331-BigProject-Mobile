@@ -1,18 +1,19 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 const FormTitle = () => {
     return (
-        <Text style={styles.title}>GeoBook</Text>
+        <Image style={styles.image} source={require("cop4331-bigproject-mobile/assets/geobook-logo.png")} />
     );
 }
 
 const styles = StyleSheet.create({
-    title: {
-        fontSize: 32,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginBottom: 20,
+    image: {
+        marginTop: 10,
+        marginBottom: 25,
+        width: 150,
+        height: 40,
+        alignSelf: 'center',
     },
 });
 

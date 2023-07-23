@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from 'cop4331-bigproject-mobile/login/pages.js'; // Ensure this path is correct
 import RegisterPage from 'cop4331-bigproject-mobile/register/pages.js'; // Adjust the path as needed
 import ForgotPasswordPage from './login/forgot-password/pages';
-import backgroundImage from 'cop4331-bigproject-mobile/assets/thank-god-we-found-it.png';
+import backgroundImage from 'cop4331-bigproject-mobile/assets/THE-ONE-WE-NEED-YIPPPEEEEEopac4.jpg';
+import Home from './pages';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,9 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen name="ForgotPassword">
           {props => <CustomScreen><ForgotPasswordPage {...props} /></CustomScreen>}
+        </Stack.Screen>
+        <Stack.Screen name="Home">
+          {props => <CustomScreen><Home {...props} /></CustomScreen>}
         </Stack.Screen>
         {/* Add other screens as needed */}
         {/* <Stack.Screen name="OtherScreen" component={OtherScreen} /> */} 
