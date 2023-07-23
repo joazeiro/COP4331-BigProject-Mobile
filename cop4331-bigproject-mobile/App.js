@@ -6,7 +6,10 @@ import LoginPage from 'cop4331-bigproject-mobile/login/pages.js'; // Ensure this
 import RegisterPage from 'cop4331-bigproject-mobile/register/pages.js'; // Adjust the path as needed
 import ForgotPasswordPage from './login/forgot-password/pages';
 import backgroundImage from 'cop4331-bigproject-mobile/assets/THE-ONE-WE-NEED-YIPPPEEEEEopac4.jpg';
+<<<<<<< HEAD
 import Home from './pages';
+=======
+>>>>>>> 0f946181ff61f7917669422283b055bcb635da50
 
 const Stack = createStackNavigator();
 
