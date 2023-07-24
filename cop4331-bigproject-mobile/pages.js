@@ -1,19 +1,20 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text } from 'react-native';
 import { SearchContext, SearchHandler } from './components/SearchContext';
 import Navbar from './components/Navbar';
-import PostListContainer from './components/PostListContainer';
+import PostList from './components/PostList';
 
-export default function Home({navigation}) {
-    return (
-      <SearchHandler>
-        <View>
-          <Navbar/>
-          <PostListContainer>
-            {/* Uncomment below line once PostList is defined */}
-            {/* <PostList/> */}
-          </PostListContainer>
-        </View>
-      </SearchHandler>
-    );
-  }
+export default function Home({ navigation }) {
+  // Use the context value from SearchContext
+  const searchContextValue = useContext(SearchContext);
+
+  return (
+    <SearchHandler>
+      <View>
+        <Navbar />
+        {/* Pass the context value as a prop to PostList */}
+        <PostList searchQuery={searchContextValue} />
+      </View>
+    </SearchHandler>
+  );
+}

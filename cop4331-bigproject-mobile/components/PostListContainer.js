@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     width: '100%',
-    maxHeight: '80%',  // You might need to adjust this value according to your needs
+    maxHeight: '100%',  // You might need to adjust this value according to your needs
     padding: 8,
   }
 });
