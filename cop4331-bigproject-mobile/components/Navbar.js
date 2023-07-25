@@ -18,7 +18,6 @@ export const Navbar = () => {
             <Text style={{ fontSize: 24 }}>GeoBook</Text>
             <View>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     placeholder="Search"
                     value={inputText}
                     onChangeText={setInputText}
