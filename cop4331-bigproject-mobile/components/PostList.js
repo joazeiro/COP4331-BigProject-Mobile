@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SearchContext } from './SearchContext';
 
@@ -96,22 +96,23 @@ const PostList = () => {
     <SafeAreaView style={styles.container}>
       <Header onSearch={handleSearch} onSignOut={handleSignOut} />
       <View style={styles.postsContainer}>
-        {posts.map((post, index) => (
-          <View key={index} style={styles.postContainer}>
-            <View style={styles.postHeader}>
-              <Text style={styles.createdBy}><Text style={styles.postLabel}>Created by</Text> {post.author}</Text>
-              <Text style={styles.createdBy}><Text style={styles.postLabel}>Posted:</Text> {post.posted}</Text>
-            </View>
-            <View style={styles.titleTag}>
-              <Text style={styles.postLabel}><Text style={styles.postLabel}></Text> <Text style={styles.titleText}>{post.title}</Text></Text>
-              <View style={styles.tagBox}>
-                <Text style={styles.tagText}><Text style={styles.postLabel}></Text> {post.tag}</Text>
+        <ScrollView style={{}}>
+          {posts.map((post, index) => (
+            <View key={index} style={styles.postContainer}>
+              <View style={styles.postHeader}>
+                <Text style={styles.createdBy}><Text style={styles.postLabel}>Created by</Text> {post.author}</Text>
+                <Text style={styles.createdBy}><Text style={styles.postLabel}>Posted:</Text> {post.posted}</Text>
               </View>
+              <View style={styles.titleTag}>
+                <Text style={styles.postLabel}><Text style={styles.postLabel}></Text> <Text style={styles.titleText}>{post.title}</Text></Text>
+                <View style={styles.tagBox}>
+                  <Text style={styles.tagText}><Text style={styles.postLabel}></Text> {post.tag}</Text>
+                </View>
+              </View>
+              <Text style={styles.commentLabel}><Text style={styles.commentLabelText}></Text> {post.content}</Text>
             </View>
-            <Text style={styles.commentLabel}><Text style={styles.commentLabelText}></Text> {post.content}</Text>
-
-          </View>
-        ))}
+          ))}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     borderColor: '#116A7B',
     borderWidth: 3,
     borderRadius: 30,
-    marginBottom: 11,
+    marginBottom: 9.7,
   },
   title: {
     flex: 1,
@@ -170,6 +171,7 @@ const styles = StyleSheet.create({
   postsContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    height: 5000,
   },
   errorText: {
     color: '#FF0000',
@@ -188,6 +190,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     borderColor: '#116A7B',
     borderWidth: 3,
+    alignSelf: 'center', // center align the post container
   },
   postHeader: {
     flexDirection: 'row',
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    marginBottom: 10,
+    marginBottom: 6,
   },
   tagBox: {
     backgroundColor: '#BFFFFF',
@@ -228,7 +231,7 @@ const styles = StyleSheet.create({
     color: '#116A7B'
   },
   commentLabel: {
-    fontSize: 20,
+    fontSize: 12,
     marginTop: 7,
     color: '#116A7B'
   },
