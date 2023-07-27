@@ -4,6 +4,7 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Image }
 export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState('');  // New state for success message
 
   const handleEmail = async () => {
     try {
@@ -20,7 +21,9 @@ export default function ForgotPassword({ navigation }) {
       const data = await response.json();
 
       if (response.ok) {
-        setErrorMessage(data.message);
+        setEmail('');  // Clear email input
+        setSuccessMessage('Success, please check your email.');  // Set success message
+        setErrorMessage('');  // Clear error message
       } else if (response.status === 401) {
         // An error has occured
         setErrorMessage(data.error);
@@ -53,6 +56,8 @@ export default function ForgotPassword({ navigation }) {
         <TouchableOpacity style={styles.loginButton} onPress={handleEmail}>
           <Text style={styles.loginButtonText}>Send Email</Text>
         </TouchableOpacity>
+
+        {successMessage && <Text>{successMessage}</Text>}
 
         <View style={styles.linkText}>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>

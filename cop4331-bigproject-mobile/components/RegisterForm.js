@@ -10,6 +10,7 @@ const RegisterForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');  // New state for success message
 
   const handleRegister = async () => {
     if (confirmPassword !== password) {
@@ -33,7 +34,14 @@ const RegisterForm = ({ navigation }) => {
       });
 
       if (response.ok) {
-        navigation.navigate('Verification');
+        // Instead of navigating, set success message and clear inputs
+        setSuccessMessage('Success. Check your email to verify.');
+        setUsername('');
+        setPassword('');
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setConfirmPassword('');
       } else if (response.status === 401) {
         const data = await response.json();
         setErrorMessage(data.message);
@@ -132,6 +140,8 @@ const RegisterForm = ({ navigation }) => {
         <TouchableOpacity style={styles.loginButton} onPress={handleRegister}>
           <Text style={styles.loginButtonText}>Register</Text>
         </TouchableOpacity>
+
+        {successMessage && <Text>{successMessage}</Text>} 
 
         <View style={styles.centerText}>
           <Text style={styles.accountText}>Already have an account?</Text>
