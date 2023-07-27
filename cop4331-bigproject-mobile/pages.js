@@ -10,7 +10,7 @@ export default function Home({ navigation }) {
 
   return (
     <SearchHandler>
-      <View style={styles.regularView}>
+      <View>
         <ScrollView>
         <Navbar />
         {/* Pass the context value as a prop to PostList */}
@@ -20,9 +20,3 @@ export default function Home({ navigation }) {
     </SearchHandler>
   );
 }
-
-const styles = StyleSheet.create({
-  regularView{
-    height: 300,
-  },
-});
