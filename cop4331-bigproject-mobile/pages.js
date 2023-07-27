@@ -11,11 +11,9 @@ export default function Home({ navigation }) {
   return (
     <SearchHandler>
       <View>
-        <ScrollView>
         <Navbar />
         {/* Pass the context value as a prop to PostList */}
         <PostList searchQuery={searchContextValue} />
-      </ScrollView>
       </View>
     </SearchHandler>
   );
